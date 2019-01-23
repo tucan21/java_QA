@@ -8,12 +8,11 @@ public class MyFirstProgram {
         hello("user");
         hello("Jacek");
 
-        double l = 8;
-        System.out.println("Powierzchnia kwadratu o boku " + l + " wynosi " + area(l)+".");
+        Square s = new Square(8);
+        System.out.println("Powierzchnia kwadratu o boku " + s.l + " wynosi " + s.area()+".");
 
-        double a = 6;
-        double b = 8;
-        System.out.println("Powierzchnia prostokonta o bokach " + a + " i " + b + " wynosi " + area(a, b)+".");
+        Rectangle r = new Rectangle(6,8);
+        System.out.println("Powierzchnia prostokąta o bokach " + r.a + " i " + r.b + " wynosi " + s.area()+".");
             }
 
     public static void hello(String sombody) {
@@ -22,14 +21,4 @@ public class MyFirstProgram {
 
     }
 
-    public static double area(double len) {
-        return len * len;
-
     }
-
-    public static double area(double a, double b) {
-        return a * b;
-
-    }
-
-}
