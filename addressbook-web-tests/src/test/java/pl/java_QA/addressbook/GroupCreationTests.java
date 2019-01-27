@@ -14,13 +14,13 @@ public class GroupCreationTests {
     wd = new FirefoxDriver();
     wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     wd.get("http://localhost:81/addressbook/group.php");
-    login();
+    login("admin", "secret");
   }
 
-  private void login() {
+  private void login(String username, String password) {
     wd.findElement(By.name("user")).click();
-    wd.findElement(By.name("user")).sendKeys("admin");
-    wd.findElement(By.name("pass")).sendKeys("secret");
+    wd.findElement(By.name("user")).sendKeys(username);
+    wd.findElement(By.name("pass")).sendKeys(password);
     wd.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Password:'])[1]/following::input[2]")).click();
   }
 
@@ -28,7 +28,15 @@ public class GroupCreationTests {
   public void testGroupCreation()  {
     goToGroupPage();
     initGroupCreation();
-    fillGroupForm();
+    fillGroupForm(new GroupData("test1", "test1", "test1"));
+    submitGroupCreation();
+    goToGroupPage();
+    initGroupCreation();
+    fillGroupForm(new GroupData("test2", "test2", "test2"));
+    submitGroupCreation();
+    goToGroupPage();
+    initGroupCreation();
+    fillGroupForm(new GroupData("test3", "test3", "test3"));
     submitGroupCreation();
     returnToGroupPage();
 
@@ -42,11 +50,11 @@ public class GroupCreationTests {
     wd.findElement(By.name("submit")).click();
   }
 
-  private void fillGroupForm() {
+  private void fillGroupForm(GroupData groupData) {
     wd.findElement(By.name("group_name")).click();
-    wd.findElement(By.name("group_name")).sendKeys("test1");
-    wd.findElement(By.name("group_header")).sendKeys("test2");
-    wd.findElement(By.name("group_footer")).sendKeys("test2");
+    wd.findElement(By.name("group_name")).sendKeys(groupData.getName());
+    wd.findElement(By.name("group_header")).sendKeys(groupData.getHeader());
+    wd.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
   }
 
   private void initGroupCreation() {
