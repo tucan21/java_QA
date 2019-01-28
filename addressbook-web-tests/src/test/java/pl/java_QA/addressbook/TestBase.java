@@ -21,33 +21,33 @@ public class TestBase {
     login("admin", "secret");
   }
 
-  private void login(String username, String password) {
+  public void login(String username, String password) {
     wd.findElement(By.name("user")).click();
     wd.findElement(By.name("user")).sendKeys(username);
     wd.findElement(By.name("pass")).sendKeys(password);
     wd.findElement(By.xpath("//input[@value='Login']")).click();
   }
 
-  protected void returnToGroupPage() {
+  public void returnToGroupPage() {
     wd.findElement(By.linkText("group page")).click();
   }
 
-  protected void submitGroupCreation() {
+  public void submitGroupCreation() {
     wd.findElement(By.name("submit")).click();
   }
 
-  protected void fillGroupForm(GroupData groupData) {
+  public void fillGroupForm(GroupData groupData) {
     wd.findElement(By.name("group_name")).click();
     wd.findElement(By.name("group_name")).sendKeys(groupData.getName());
     wd.findElement(By.name("group_header")).sendKeys(groupData.getHeader());
     wd.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
   }
 
-  protected void initGroupCreation() {
+  public void initGroupCreation() {
     wd.findElement(By.name("new")).click();
   }
 
-  protected void goToGroupPage() {
+  public void goToGroupPage() {
     wd.findElement(By.linkText("groups")).click();
   }
 
@@ -57,7 +57,7 @@ public class TestBase {
 
   }
 
-  private boolean isElementPresent(By by) {
+  public boolean isElementPresent(By by) {
     try {
       wd.findElement(by);
       return true;
@@ -66,7 +66,7 @@ public class TestBase {
     }
   }
 
-  private boolean isAlertPresent() {
+  public boolean isAlertPresent() {
     try {
       wd.switchTo().alert();
       return true;
@@ -75,19 +75,19 @@ public class TestBase {
     }
   }
 
-  protected void deleteSelectedGroup() {
+  public void deleteSelectedGroup() {
     wd.findElement(By.name("delete")).click();
   }
 
-  protected void selectGroup() {
+  public void selectGroup() {
     wd.findElement(By.name("selected[]")).click();
   }
 
-  protected void submitContactCreation() {
+  public void submitContactCreation() {
     wd.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Notes:'])[1]/following::input[1]")).click();
   }
 
-  protected void fillContactForm(ContactData contactData) {
+  public void fillContactForm(ContactData contactData) {
     wd.findElement(By.name("firstname")).click();
     wd.findElement(By.name("firstname")).sendKeys(contactData.getFirstname());
     wd.findElement(By.name("lastname")).sendKeys(contactData.getLastname());
@@ -96,7 +96,43 @@ public class TestBase {
     wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
   }
 
-  protected void initContactCreation() {
+  public void initContactCreation() {
     wd.findElement(By.linkText("add new")).click();
+  }
+
+  protected void confirmDelete() { wd.switchTo().alert().accept(); }
+
+  protected void deleteSelectedContact() { wd.findElement(By.xpath("//input[@value='Delete']")).click();  }
+
+  protected void selectContact() {
+    wd.findElement(By.name("selected[]")).click();
+  }
+
+  public void returnToContactPage() {
+    wd.findElement(By.linkText("home page")).click();
+  }
+
+  public void confirmModifyContact() {
+    wd.findElement(By.xpath("(//input[@name='update'])[2]")).click();
+  }
+
+  public void selectModifyContact() {
+    wd.findElement(By.xpath("//img[@alt='Edit']")).click();
+  }
+
+  protected void goToContactPage() {
+    wd.findElement(By.linkText("home")).click();
+  }
+
+  public void confirmModifyGroup() {
+    wd.findElement(By.name("update")).click();
+  }
+
+  public void selectModifyGroup() {
+    wd.findElement(By.name("edit")).click();
+  }
+
+  public void selectCroup() {
+    wd.findElement(By.name("selected[]")).click();
   }
 }
