@@ -1,20 +1,19 @@
-package pl.java_QA.addressbook;
+package pl.java_QA.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import pl.java_QA.addressbook.model.ContactData;
+import pl.java_QA.addressbook.model.GroupData;
 
 import java.util.concurrent.TimeUnit;
 
-public class TestBase {
+public class ApplicationManager  {
   WebDriver wd;
 
-  @BeforeMethod(alwaysRun = true)
-  public void setUp() throws Exception {
+  public void init() {
     wd = new FirefoxDriver();
     wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     wd.get("http://localhost:81/addressbook/group.php");
@@ -51,10 +50,8 @@ public class TestBase {
     wd.findElement(By.linkText("groups")).click();
   }
 
-  @AfterMethod(alwaysRun = true)
-  public void tearDown() throws Exception {
+  public void stop() {
     wd.quit();
-
   }
 
   public boolean isElementPresent(By by) {
@@ -100,11 +97,11 @@ public class TestBase {
     wd.findElement(By.linkText("add new")).click();
   }
 
-  protected void confirmDelete() { wd.switchTo().alert().accept(); }
+  public void confirmDelete() { wd.switchTo().alert().accept(); }
 
-  protected void deleteSelectedContact() { wd.findElement(By.xpath("//input[@value='Delete']")).click();  }
+  public void deleteSelectedContact() { wd.findElement(By.xpath("//input[@value='Delete']")).click();  }
 
-  protected void selectContact() {
+  public void selectContact() {
     wd.findElement(By.name("selected[]")).click();
   }
 
@@ -120,7 +117,7 @@ public class TestBase {
     wd.findElement(By.xpath("//img[@alt='Edit']")).click();
   }
 
-  protected void goToContactPage() {
+  public void goToContactPage() {
     wd.findElement(By.linkText("home")).click();
   }
 
