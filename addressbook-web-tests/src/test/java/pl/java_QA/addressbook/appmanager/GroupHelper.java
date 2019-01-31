@@ -44,7 +44,4 @@ public class GroupHelper extends HelperBase {
     click(By.name("edit"));
   }
 
-  public void selectCroup() {
-    click(By.name("selected[]"));
-  }
 }

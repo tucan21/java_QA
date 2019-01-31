@@ -9,11 +9,15 @@ public class HelperBase {
   protected WebDriver wd;
 
   public HelperBase(WebDriver wd) {
+
     this.wd = wd;
+
   }
 
   protected void click(By locator) {
+
     wd.findElement(locator).click();
+
   }
 
   protected void type(By locator, String text) {
@@ -39,4 +43,6 @@ public class HelperBase {
       return false;
     }
   }
+
+
 }

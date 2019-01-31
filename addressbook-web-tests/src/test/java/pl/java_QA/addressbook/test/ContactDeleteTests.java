@@ -7,11 +7,11 @@ public class ContactDeleteTests extends TestBase {
 
   @Test
   public void testContactDeleteTests() throws Exception {
-    app.goToContactPage();
-    app.selectContact();
-    app.deleteSelectedContact();
-    app.confirmDelete();
-    app.goToContactPage();
+    app.getContactHelper().goToContactPage();
+    app.getContactHelper().selectContact();
+    app.getContactHelper().deleteSelectedContact();
+    app.getContactHelper().confirmDelete();
+    app.getContactHelper().goToContactPage();
   }
 
 }
