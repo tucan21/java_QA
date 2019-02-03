@@ -1,13 +1,13 @@
 package pl.java_QA.addressbook.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import pl.java_QA.addressbook.model.ContactData;
 
 public class ContactHelper extends HelperBase {
 
 
-  public ContactHelper(WebDriver wd) {
+  public ContactHelper(FirefoxDriver wd) {
     super(wd);
 
   }
