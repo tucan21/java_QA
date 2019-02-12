@@ -53,13 +53,13 @@ public class ContactHelper extends HelperBase {
     click(By.linkText("home page"));
   }
 
-  public void confirmModifyContact() {
-    click(By.xpath("(//input[@name='update'])[2]"));
-  }
-
   /* public void confirmModifyContact() {
-    click(By.name("update"));
+    click(By.xpath("(//input[@name='update'])[2]"));
   } */
+
+  public void confirmModifyContact() {
+    click(By.name("update"));
+  }
 
   public void selectModifyContact() {
     click(By.xpath("//img[@alt='Edit']"));
@@ -79,5 +79,9 @@ public class ContactHelper extends HelperBase {
     submitContactCreation();
     returnToContactPage();
   }
+
+  public int getContactCount() {
+    return wd.findElements(By.name("selected[]")).size();
   }
+}
 
