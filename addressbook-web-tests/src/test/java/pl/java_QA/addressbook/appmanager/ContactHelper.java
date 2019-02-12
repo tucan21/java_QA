@@ -45,8 +45,8 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("//input[@value='Delete']"));
   }
 
-  public void selectContact() {
-    click(By.name("selected[]"));
+  public void selectContact(int index) {
+    wd.findElements(By.name("selected[]")).get(index).click();
   }
 
   public void returnToContactPage() {
@@ -61,8 +61,8 @@ public class ContactHelper extends HelperBase {
     click(By.name("update"));
   }
 
-  public void selectModifyContact() {
-    click(By.xpath("//img[@alt='Edit']"));
+  public void selectModifyContact(int index) {
+    wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
   }
 
   public void goToContactPage() {

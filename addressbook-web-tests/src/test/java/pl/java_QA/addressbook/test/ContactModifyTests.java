@@ -14,7 +14,7 @@ public class ContactModifyTests extends TestBase {
       app.getContactHelper().createContact(new ContactData("test1", null,
               null, null, null, "test1"));
     }
-    app.getContactHelper().selectModifyContact();
+    app.getContactHelper().selectModifyContact(before - 1);
     app.getContactHelper().fillContactForm(new ContactData("modify First Name 12",
             "modify Last Name 13", "modify adres 25",
             "+48854632521", "adres12@adres.com", null), false);
