@@ -12,7 +12,7 @@ public class ContactDeleteTests extends TestBase {
   @Test
   public void testContactDeleteTests() throws Exception {
     app.getContactHelper().goToContactPage();
-        if (! app.getContactHelper().isThereAContact()) {
+    if (!app.getContactHelper().isThereAContact()) {
       app.getContactHelper().createContact(new ContactData("dupa", null,
               null, null, null, "test1"));
     }
