@@ -14,7 +14,7 @@ public class ContactCreationTests extends TestBase {
     app.contact().contactPage();
     List<ContactData> before = app.contact().list();
     ContactData contact = new ContactData("Pawel", "Nowak",
-            "Krakow", "+48602852123", "adres@adres.com", "test1");
+            "Krakow", "+48602852123", "adres@adres.com", "test1Group");
     app.contact().create(contact);
 
     /*app.contact().contactPage();
