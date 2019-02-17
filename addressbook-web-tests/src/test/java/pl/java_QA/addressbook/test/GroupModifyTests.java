@@ -1,6 +1,7 @@
 package pl.java_QA.addressbook.test;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pl.java_QA.addressbook.model.GroupData;
 
@@ -9,25 +10,27 @@ import java.util.List;
 
 public class GroupModifyTests extends TestBase {
 
+  @BeforeMethod
+  public void ensurePreconditions() {
+    app.goTo().groupPage();
+
+    if (app.group().list().size() ==0) {
+      app.group().create(new GroupData("test1Group", null, null));
+    }
+  }
+
   @Test
   public void testGroupModifyTests() throws Exception {
-    app.getNavigationHelper().goToGroupPage();
 
-    if (!app.getGroupHelper().isThereAGroup()) {
-      app.getGroupHelper().createGroup(new GroupData("test1", null, null));
-    }
-    List<GroupData> before = app.getGroupHelper().getGroupList();
-    app.getGroupHelper().selectGroup(before.size() - 1);
-    app.getGroupHelper().selectModifyGroup();
-    GroupData group = new GroupData(before.get(before.size() - 1).getId(), "modify 123",
+    List<GroupData> before = app.group().list();
+    int index = before.size() - 1;
+    GroupData group = new GroupData(before.get(index).getId(), "modify 123",
             "modify 123", "modify 123");
-    app.getGroupHelper().fillGroupForm(group);
-    app.getGroupHelper().confirmModifyGroup();
-    app.getGroupHelper().returnToGroupPage();
-    List<GroupData> after = app.getGroupHelper().getGroupList();
+    app.group().modify(index, group);
+    List<GroupData> after = app.group().list();
     Assert.assertEquals(after.size(), before.size());
 
-    before.remove(before.size() - 1);
+    before.remove(index);
     before.add(group);
     Comparator<? super GroupData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
     before.sort(byId);
