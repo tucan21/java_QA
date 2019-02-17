@@ -13,21 +13,13 @@ public class ContactDeleteTests extends TestBase {
   public void ensurePreconditions() {
     app.contact().contactPage();
     if (!app.contact().isThereAContact()) {
-      app.contact().create(new ContactData("firstnameCreationD", null,
-              null, null, null, "test1"));
+      app.contact().create(new ContactData().withFirstname("firstnameCreationD").withGroup("test1Group"));
     }
   }
 
 
   @Test
   public void testContactDeleteTests() throws Exception {
-    app.contact().contactPage();
-    if (!app.contact().isThereAContact()) {
-      if (app.contact().list().size() == 0) {
-        app.contact().create(new ContactData("firstnameCreationD", null,
-                null, null, null, "test1"));
-      }
-    }
       List<ContactData> before = app.contact().list();
       int index = before.size() - 1;
       app.contact().delete(index);

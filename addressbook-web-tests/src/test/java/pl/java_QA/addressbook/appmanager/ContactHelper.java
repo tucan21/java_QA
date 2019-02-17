@@ -112,8 +112,7 @@ public class ContactHelper extends HelperBase {
       String firstName = tds.get(2).getText();
       String lastName = tds.get(1).getText();
 
-      ContactData contact = new ContactData(id, firstName, lastName, null, null, null, null);
-      contacts.add(contact);
+      contacts.add(new ContactData().withId(id).withFirstname(firstName).withtLastname(lastName));
     }
     return contacts;
   }
