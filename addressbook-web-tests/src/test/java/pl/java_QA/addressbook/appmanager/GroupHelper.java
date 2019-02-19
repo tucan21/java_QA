@@ -71,15 +71,6 @@ public class GroupHelper extends HelperBase {
     returnToGroupPage();
   }
 
-  public boolean isThereAGroup() {
-    return isElementPresent(By.name("selected[]"));
-  }
-
-  public int getGroupCount() {
-    return wd.findElements(By.name("selected[]")).size();
-  }
-
-
   public Set<GroupData> all() {
     Set<GroupData> groups = new HashSet<GroupData>();
     List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
