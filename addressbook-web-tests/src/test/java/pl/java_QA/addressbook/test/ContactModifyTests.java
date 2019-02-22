@@ -1,6 +1,5 @@
 package pl.java_QA.addressbook.test;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pl.java_QA.addressbook.model.ContactData;
@@ -10,15 +9,13 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.assertEquals;
 
-import java.util.Set;
-
 public class ContactModifyTests extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
     app.goTo().contactPage();
 
-    if (app.contact().all().size() ==0) {
+    if (app.contact().all().size() == 0) {
       app.contact().create(new ContactData().withFirstname("firstnameCreationM").withGroup("test1Group"));
     }
   }

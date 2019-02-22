@@ -34,5 +34,5 @@ public class Groups extends ForwardingSet<GroupData> {
     Groups groups = new Groups(this);
     groups.remove(group);
     return groups;
-}
+  }
 }

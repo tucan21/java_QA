@@ -62,7 +62,6 @@ public class ContactData {
   }
 
 
-
   public int getId() {
     return id;
   }
@@ -75,7 +74,6 @@ public class ContactData {
             ", lastname='" + lastname + '\'' +
             '}';
   }
-
 
 
   public String getFirstname() {

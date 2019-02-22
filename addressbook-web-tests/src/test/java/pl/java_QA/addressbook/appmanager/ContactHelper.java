@@ -8,9 +8,7 @@ import org.testng.Assert;
 import pl.java_QA.addressbook.model.ContactData;
 import pl.java_QA.addressbook.model.Contacts;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class ContactHelper extends HelperBase {
 
