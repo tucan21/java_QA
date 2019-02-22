@@ -20,5 +20,8 @@ public class NavigationHelper extends HelperBase {
     click(By.linkText("groups"));
   }
 
+  public void contactPage() {
+    click(By.linkText("home"));
+  }
 
 }
