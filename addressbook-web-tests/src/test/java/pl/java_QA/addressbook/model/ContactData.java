@@ -18,6 +18,7 @@ public class ContactData {
   private String group;
   private String allEmails;
   private String allAddresses;
+  private String allView;
 
 
   public String getAllEmails() {
@@ -35,6 +36,15 @@ public class ContactData {
 
   public ContactData withAllAddresses(String allAddresses) {
     this.allAddresses = allAddresses;
+    return this;
+  }
+
+  public String getAllView() {
+    return allView;
+  }
+
+  public ContactData withAllView(String allView) {
+    this.allView = allView;
     return this;
   }
 
