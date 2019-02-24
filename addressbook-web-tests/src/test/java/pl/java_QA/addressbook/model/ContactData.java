@@ -7,7 +7,7 @@ public class ContactData {
   private String firstname;
   private String lastname;
   private String address;
- // private String address2;
+  private String address2;
   private String mobilePhone;
   private String workPhone;
   private String homePhone;
@@ -48,20 +48,20 @@ public class ContactData {
     return this;
   }
 
- /* public String getAddress2() {
+  public String getAddress2() {
     return address2;
   }
 
-  public ContactData  withAddress2(String address2) {
+  public ContactData withAddress2(String address2) {
     this.address2 = address2;
     return this;
-  }*/
+  }
 
   public String getEmail2() {
     return email2;
   }
 
-  public ContactData  withEmail2(String email2) {
+  public ContactData withEmail2(String email2) {
     this.email2 = email2;
     return this;
   }
@@ -70,7 +70,7 @@ public class ContactData {
     return email3;
   }
 
-  public ContactData  withEmail3(String email3) {
+  public ContactData withEmail3(String email3) {
     this.email3 = email3;
     return this;
   }
@@ -180,8 +180,6 @@ public class ContactData {
   }
 
 
-
-
   public int getId() {
     return id;
   }
@@ -194,7 +192,6 @@ public class ContactData {
             ", lastname='" + lastname + '\'' +
             '}';
   }
-
 
 
 }
