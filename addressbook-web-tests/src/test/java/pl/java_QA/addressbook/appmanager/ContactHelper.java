@@ -86,6 +86,14 @@ public class ContactHelper extends HelperBase {
     return isElementPresent(By.xpath("//img[@alt='Edit']"));
   }
 
+  /*public int count() {
+    return wd.findElements(By.xpath("//img[@alt='Edit']")).size();
+  }*/
+
+  public int count() {
+    return wd.findElements(By.name("selected[]")).size();
+  }
+
   public void create(ContactData contact) {
     initContactCreation();
     fillContactForm(contact, true);
