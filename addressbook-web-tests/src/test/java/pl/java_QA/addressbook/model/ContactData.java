@@ -1,8 +1,15 @@
 package pl.java_QA.addressbook.model;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
+
+import java.io.File;
 import java.util.Objects;
 
+@XStreamAlias("contact")
+
 public class ContactData {
+  @XStreamOmitField
   private int id = Integer.MAX_VALUE;
   private String firstname;
   private String lastname;
@@ -19,7 +26,17 @@ public class ContactData {
   private String allEmails;
   private String allAddresses;
   private String allView;
+  private File photo;
 
+  public File getPhoto() {
+    return photo;
+
+  }
+
+  public ContactData withPhoto(File photo) {
+    this.photo = photo;
+    return this;
+  }
 
   public String getAllEmails() {
     return allEmails;

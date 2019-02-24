@@ -33,6 +33,7 @@ public class ContactHelper extends HelperBase {
     type(By.name("email"), contactData.getEmail());
     type(By.name("email2"), contactData.getEmail2());
     type(By.name("email3"), contactData.getEmail3());
+    attach(By.name("photo"), contactData.getPhoto());
 
     if (creation) {
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
@@ -125,7 +126,7 @@ public class ContactHelper extends HelperBase {
       String firstName = tds.get(2).getText();
       String allPhones = tds.get(5).getText();
       String allAddresses = tds.get(3).getText();
-      String allEmails = tds.get(4).getText();
+      String allEmails = tds.get(3).getText();
       contactCache.add(new ContactData().withId(id).withFirstname(firstName).withtLastname(lastName)
               .withAllPhones(allPhones).withAllAddresses(allAddresses).withAllEmails(allEmails));
     }
