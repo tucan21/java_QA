@@ -1,0 +1,41 @@
+<list>
+  <contact>
+    <firstname>firstname 0</firstname>
+    <lastname>lastname 0</lastname>
+    <address>address 0</address>
+    <address2>address2 0</address2>
+    <mobilePhone>+4860245231</mobilePhone>
+    <workPhone>+48(22)2564152</workPhone>
+    <homePhone>+48 12 521 96 41</homePhone>
+    <email>email1@email.com</email>
+    <email2>email2@email.com</email2>
+    <email3>email3@email.com</email3>
+    <group>test1Group</group>
+  </contact>
+  <contact>
+    <firstname>firstname 1</firstname>
+    <lastname>lastname 1</lastname>
+    <address>address 1</address>
+    <address2>address2 1</address2>
+    <mobilePhone>+4860245231</mobilePhone>
+    <workPhone>+48(22)2564152</workPhone>
+    <homePhone>+48 12 521 96 41</homePhone>
+    <email>email1@email.com</email>
+    <email2>email2@email.com</email2>
+    <email3>email3@email.com</email3>
+    <group>test1Group</group>
+  </contact>
+  <contact>
+    <firstname>firstname 2</firstname>
+    <lastname>lastname 2</lastname>
+    <address>address 2</address>
+    <address2>address2 2</address2>
+    <mobilePhone>+4860245231</mobilePhone>
+    <workPhone>+48(22)2564152</workPhone>
+    <homePhone>+48 12 521 96 41</homePhone>
+    <email>email1@email.com</email>
+    <email2>email2@email.com</email2>
+    <email3>email3@email.com</email3>
+    <group>test1Group</group>
+  </contact>
+</list>

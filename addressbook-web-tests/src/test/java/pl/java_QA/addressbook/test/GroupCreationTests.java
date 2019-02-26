@@ -45,20 +45,21 @@ public class GroupCreationTests extends TestBase {
       json += line;
       line = reader.readLine();
     }
-   Gson gson = new Gson();
-    List<GroupData> groups = gson.fromJson(json, new TypeToken<List<GroupData>>(){}.getType());
+    Gson gson = new Gson();
+    List<GroupData> groups = gson.fromJson(json, new TypeToken<List<GroupData>>() {
+    }.getType());
     return groups.stream().map((g) -> new Object[]{g}).collect(Collectors.toList()).iterator();
   }
 
   @Test(dataProvider = "validGroupsFromJson")
-public void testGroupCreation(GroupData group) {
-  app.goTo().groupPage();
-  Groups before = app.group().all();
-  app.group().create(group);
-  assertThat(app.group().count(), equalTo(before.size() + 1));
-  Groups after = app.group().all();
-  assertThat(after, equalTo(
-          before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
-}
+  public void testGroupCreation(GroupData group) {
+    app.goTo().groupPage();
+    Groups before = app.group().all();
+    app.group().create(group);
+    assertThat(app.group().count(), equalTo(before.size() + 1));
+    Groups after = app.group().all();
+    assertThat(after, equalTo(
+            before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
+  }
 
 }

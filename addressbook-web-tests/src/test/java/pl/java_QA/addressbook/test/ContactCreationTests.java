@@ -47,11 +47,12 @@ public class ContactCreationTests extends TestBase {
       line = reader.readLine();
     }
     Gson gson = new Gson();
-    List<ContactData> contacts = gson.fromJson(json, new TypeToken<List<ContactData>>(){}.getType());
+    List<ContactData> contacts = gson.fromJson(json, new TypeToken<List<ContactData>>() {
+    }.getType());
     return contacts.stream().map((g) -> new Object[]{g}).collect(Collectors.toList()).iterator();
   }
 
-  @Test (dataProvider = "validContacts")
+  @Test(dataProvider = "validContacts")
   public void testContactCreation(ContactData contact) {
     app.goTo().contactPage();
     Contacts before = app.contact().all();

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="pl.java_QA.addressbook.test.ContactModifyTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-02-24T20:46:01" hostname="Jack-Komputer" time="8.501">
+  <properties/>
+  <testcase name="testContactModifyTests" classname="pl.java_QA.addressbook.test.ContactModifyTests" time="8.501"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
