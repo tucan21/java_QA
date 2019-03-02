@@ -55,6 +55,10 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("//input[@value='Delete']"));
   }
 
+  public void selectContact() {
+    wd.findElement(By.name("selected[]")).click();
+  }
+
 
   public void selectContactById(int id) {
     wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
@@ -72,6 +76,10 @@ public class ContactHelper extends HelperBase {
 
   public void selectModifyContactById(int id) {
     wd.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click();
+  }
+
+  public void selectModifyContact() {
+    click(By.xpath("//img[@alt='Edit']"));
   }
 
   public void selectViewContactById(int id) {
@@ -103,7 +111,8 @@ public class ContactHelper extends HelperBase {
   }
 
   public void modify(ContactData contact) {
-    selectModifyContactById(contact.getId());
+    //selectModifyContactById(contact.getId());
+    selectModifyContact();
     fillContactForm(contact, false);
     confirmModifyContact();
     contactCache = null;
@@ -111,7 +120,8 @@ public class ContactHelper extends HelperBase {
   }
 
   public void delete(ContactData contact) {
-    selectContactById(contact.getId());
+    //selectContactById(contact.getId());
+    selectContact();
     deleteSelectedContact();
     confirmDelete();
     contactCache = null;
