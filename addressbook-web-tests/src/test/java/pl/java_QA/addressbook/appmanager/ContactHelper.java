@@ -111,8 +111,8 @@ public class ContactHelper extends HelperBase {
   }
 
   public void modify(ContactData contact) {
-    //selectModifyContactById(contact.getId());
-    selectModifyContact();
+    selectModifyContactById(contact.getId());
+    //selectModifyContact();
     fillContactForm(contact, false);
     confirmModifyContact();
     contactCache = null;
