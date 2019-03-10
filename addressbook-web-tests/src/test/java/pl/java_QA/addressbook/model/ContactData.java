@@ -16,22 +16,22 @@ import java.util.Objects;
 
 public class ContactData {
 
+  @XStreamOmitField
   @Id
   @Column(name = "id")
-  @XStreamOmitField
   private int id = Integer.MAX_VALUE;
 
   @Column(name = "firstname")
   @Expose
   private String firstname;
 
-  @Column(name = "lastname")
   @Expose
+  @Column(name = "lastname")
   private String lastname;
 
+  @Expose
   @Column(name = "address")
   @Type(type = "text")
-  @Expose
   private String address;
 
   @Column(name = "address2")
@@ -279,14 +279,14 @@ public class ContactData {
             "id=" + id +
             ", firstname='" + firstname + '\'' +
             ", lastname='" + lastname + '\'' +
-            ", address='" + address + '\'' +
-            ", address2='" + address2 + '\'' +
-            ", mobile='" + mobilePhone + '\'' +
-            ", work='" + workPhone + '\'' +
-            ", email='" + email + '\'' +
-            ", email2='" + email2 + '\'' +
-            ", email3='" + email3 + '\'' +
-            ", home='" + homePhone + '\'' +
+           // ", address='" + address + '\'' +
+           // ", address2='" + address2 + '\'' +
+        //    ", mobile='" + mobilePhone + '\'' +
+         //   ", work='" + workPhone + '\'' +
+        //    ", email='" + email + '\'' +
+       //     ", email2='" + email2 + '\'' +
+       //     ", email3='" + email3 + '\'' +
+        //    ", home='" + homePhone + '\'' +
             '}';
   }
 
