@@ -7,7 +7,9 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.File;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "addressbook")
@@ -73,9 +75,14 @@ public class ContactData {
   @Expose
   private String email3;
 
-  @Transient
+  /*@Transient
   @Expose
-  private String group;
+  private String group;*/
+
+  @ManyToMany(fetch = FetchType.EAGER)
+  @JoinTable(name = "address_in_groups",
+          joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
+  private Set<GroupData> groups = new HashSet<GroupData>();
 
   @Transient
   @Expose
@@ -208,9 +215,9 @@ public class ContactData {
     return email;
   }
 
-  public String getGroup() {
+  /*public String getGroup() {
     return group;
-  }
+  }*/
 
   public String getAllPhones() {
     return allPhones;
@@ -263,11 +270,14 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withGroup(String group) {
+  /*public ContactData withGroup(String group) {
     this.group = group;
     return this;
-  }
+  }*/
 
+  public Groups getGroups() {
+    return new Groups(groups);
+  }
 
   public int getId() {
     return id;
@@ -279,16 +289,20 @@ public class ContactData {
             "id=" + id +
             ", firstname='" + firstname + '\'' +
             ", lastname='" + lastname + '\'' +
-           // ", address='" + address + '\'' +
-           // ", address2='" + address2 + '\'' +
-        //    ", mobile='" + mobilePhone + '\'' +
-         //   ", work='" + workPhone + '\'' +
-        //    ", email='" + email + '\'' +
-       //     ", email2='" + email2 + '\'' +
-       //     ", email3='" + email3 + '\'' +
-        //    ", home='" + homePhone + '\'' +
+            /*", address='" + address + '\'' +
+            ", address2='" + address2 + '\'' +
+            ", mobile='" + mobilePhone + '\'' +
+            ", work='" + workPhone + '\'' +
+            ", email='" + email + '\'' +
+            ", email2='" + email2 + '\'' +
+            ", email3='" + email3 + '\'' +
+            ", home='" + homePhone + '\'' +*/
             '}';
   }
 
+  public ContactData inGroup(GroupData group) {
+    groups.add(group);
+    return this;
+  }
 
 }
