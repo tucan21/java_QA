@@ -24,9 +24,10 @@ public class ChangePasswordHelper extends HelperBase{
 
   }
 
-  public void resetPassword (String userName){
+  public void resetPassword (String userName /*int id*/){
 
-    type(By.cssSelector("username"), userName);
+    type(By.cssSelector("#username"), userName);
+    //click(By.xpath("//a[contains(@href, 'manage_user_edit_page.php?user_id=" + id + "']"));
     click(By.cssSelector("input[value='Reset Password']"));
   }
 
