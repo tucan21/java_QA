@@ -24,10 +24,11 @@ public class ChangePasswordHelper extends HelperBase{
 
   }
 
-  public void resetPassword (String userName /*int id*/){
+  public void resetPassword (String userName){
 
-    type(By.cssSelector("#username"), userName);
-    //click(By.xpath("//a[contains(@href, 'manage_user_edit_page.php?user_id=" + id + "']"));
+    type(By.cssSelector("input[class='input-sm']"), userName);
+    click(By.cssSelector("input[value='Apply Filter']"));
+    click(By.tagName("td"));
     click(By.cssSelector("input[value='Reset Password']"));
   }
 
@@ -36,7 +37,7 @@ public class ChangePasswordHelper extends HelperBase{
     wd.get(confirmationLink);
     type(By.name("password"), password);
     type(By.name("password_confirm"), password);
-    click(By.cssSelector("input[value='Update User']"));
+    click(By.cssSelector("button[type='submit']"));
   }
 
 }

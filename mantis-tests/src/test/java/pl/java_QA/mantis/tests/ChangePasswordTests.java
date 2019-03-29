@@ -31,9 +31,7 @@ public class ChangePasswordTests extends TestBase {
     app.changePassword().login(admin, admin_password);
     app.changePassword().managementPage();
 
-    Iterator<UserData> iteratorUsers = app.db().
-            users().
-            iterator();
+    Iterator<UserData> iteratorUsers = app.db().users().iterator();
     UserData selectedUserData = iteratorUsers.next();
     String userName = selectedUserData.getUsername();
     String email = selectedUserData.getEmail();

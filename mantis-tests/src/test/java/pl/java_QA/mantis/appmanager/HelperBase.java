@@ -14,43 +14,58 @@ public class HelperBase {
   protected WebDriver wd;
 
 
-    public HelperBase (ApplicationManager app){
-      this.app = app;
-      this.wd = app.getDriver();
-    }
+  public HelperBase(ApplicationManager app) {
+    this.app = app;
+    this.wd = app.getDriver();
+  }
 
-    protected void click (By locator){ wd.findElement(locator).click();}
+  protected void click(By locator) {
+    wd.findElement(locator).click();
+  }
 
-    protected void type(By locator, String text){
-      click(locator);
-      if (text != null){
-        String existingText = wd.findElement(locator).getAttribute("value");
-        if(!text.equals(existingText)){
-          wd.findElement(locator).clear();
-          wd.findElement(locator).sendKeys(text);
-        }
-      }
-    }
-    protected void attach(By locator, File file){
-      if(file != null){
-        wd.findElement(locator).sendKeys(file.getAbsolutePath());
-      }
-    }
-    public boolean isAlertPresent() {
-      try {
-        wd.switchTo().alert();
-        return true;
-      } catch (NoAlertPresentException e) {
-        return false;
-      }
-    }
-
-    public boolean isElementPresent(By lokator) {
-      try {
-        wd.findElement(lokator);
-        return true;
-      } catch (NoSuchElementException ex) {
-        return false;
+  protected void type(By locator, String text) {
+    click(locator);
+    if (text != null) {
+      String existingText = wd.findElement(locator).getAttribute("value");
+      if (!text.equals(existingText)) {
+        wd.findElement(locator).clear();
+        wd.findElement(locator).sendKeys(text);
       }
     }
   }
+
+  protected void type_all(By locator, String text) {
+    click(locator);
+    if (text != null) {
+      String existingText = wd.findElement(locator).getAttribute("value");
+      if (!text.equals(existingText)) {
+        wd.findElement(locator).clear();
+        wd.findElement(locator).sendKeys(text);
+      }
+    }
+  }
+
+  protected void attach(By locator, File file) {
+    if (file != null) {
+      wd.findElement(locator).sendKeys(file.getAbsolutePath());
+    }
+  }
+
+  public boolean isAlertPresent() {
+    try {
+      wd.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
+  }
+
+  public boolean isElementPresent(By lokator) {
+    try {
+      wd.findElement(lokator);
+      return true;
+    } catch (NoSuchElementException ex) {
+      return false;
+    }
+  }
+}
