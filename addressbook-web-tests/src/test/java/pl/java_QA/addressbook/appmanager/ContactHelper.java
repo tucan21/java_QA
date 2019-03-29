@@ -116,6 +116,19 @@ public class ContactHelper extends HelperBase {
     return wd.findElements(By.name("selected[]")).size();
   }
 
+  public ContactData infoFromDetailsForm(ContactData contact) {
+    initContactDetailsById(contact.getId());
+    String name = wd.findElement(By.id("content")).getText();
+    return new ContactData().withId(contact.getId()).withName(name);
+  }
+
+  private void initContactDetailsById(int id) {
+    WebElement checkbox = wd.findElement(By.cssSelector(String.format("input[value='%s']", id)));
+    WebElement row = checkbox.findElement(By.xpath("./../.."));
+    List<WebElement> cells = row.findElements(By.tagName("td"));
+    cells.get(6).findElement(By.tagName("a")).click();
+  }
+
   public void create(ContactData contact) {
     initContactCreation();
     fillContactForm(contact, true);

@@ -75,6 +75,9 @@ public class ContactData {
   @Expose
   private String email3;
 
+  @Transient
+  private String name;
+
   /*@Transient
   @Expose
   private String group;*/
@@ -215,6 +218,9 @@ public class ContactData {
     return email;
   }
 
+  public String getName() {return name;}
+
+
   /*public String getGroup() {
     return group;
   }*/
@@ -270,6 +276,10 @@ public class ContactData {
     return this;
   }
 
+  public ContactData withName(String name) {
+    this.name = name;
+    return  this;
+  }
   /*public ContactData withGroup(String group) {
     this.group = group;
     return this;
